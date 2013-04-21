@@ -11,8 +11,7 @@ artistName="";
 albumName="";
 
 #Just take the first match
-QUERYSTRING=$(cddbcmd -h freedb.freedb.org cddb query $(cd-discid) |
-				awk 'NR == 1 {print $1,$2}');
+QUERYSTRING=$(cddbcmd -h freedb.freedb.org cddb query $(cd-discid) | awk 'NR == 1 {print $1,$2}');
 
 while read line; do
 	INDEX=${line%%=*};
@@ -34,12 +33,14 @@ while read line; do
 	esac
 done < <(cddbcmd -h freedb.freedb.org cddb read ${QUERYSTRING});
 
+rm *.cdda.wav
+
 cdparanoia -B
 
 tracknum=1;
 for f in track*.cdda.wav; do
 
-	lame -m j --replaygain-accurate -q 0 --vbr-new -V 0 -b 128 \
+	lame -m j --replaygain-accurate -h -q 0 --vbr-new -V 0 -b 192 \
 			--ta "${artistName}" --tl "${albumName}" --tn "${tracknum}" \
 			--tt "${trackNames[${tracknum}]}" --add-id3v2 \
 			"${f}" "${f/%wav/mp3}";
