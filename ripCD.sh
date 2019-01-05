@@ -28,7 +28,7 @@ while read line; do
 		#Ignore everything else
 		*)	;;
 	esac
-done < <(/usr/bin/cddbget -I -d);
+done < <(/usr/bin/cddbget -I -d | sed 's/\r//');
 
 rm *.cdda.wav
 
