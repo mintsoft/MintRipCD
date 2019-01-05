@@ -3,6 +3,6 @@ to high quality VBR MP3s
 
 ####Prerequisites####
 
-    apt-get install cddb cdparanoia cd-discid lame mp3gain
+    apt-get install cddb cdparanoia cd-discid lame mp3gain libcddb-get-perl
 
 For Debian: Probably best using http://deb-multimedia.org/ for the applications
