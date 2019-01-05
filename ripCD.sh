@@ -10,9 +10,6 @@ trackNames=();
 artistName="";
 albumName="";
 
-#Just take the first match
-QUERYSTRING=$(cddbcmd -h freedb.freedb.org cddb query $(cd-discid) | awk 'NR == 1 {print $1,$2}');
-
 while read line; do
 	INDEX=${line%%=*};
 	VALUE=${line#*=};
@@ -31,7 +28,7 @@ while read line; do
 		#Ignore everything else
 		*)	;;
 	esac
-done < <(cddbcmd -h freedb.freedb.org cddb read ${QUERYSTRING});
+done < <(/usr/bin/cddbget -I -d);
 
 rm *.cdda.wav
 
@@ -56,6 +53,6 @@ for f in track*.cdda.wav; do
 done
 
 echo "CD Ripped, and should be here: ${TEMPDIR}/*.mp3"
-eject /dev/cdrom
+#eject /dev/cdrom
 
 popd
