@@ -53,6 +53,6 @@ for f in track*.cdda.wav; do
 done
 
 echo "CD Ripped, and should be here: ${TEMPDIR}/*.mp3"
-#eject /dev/cdrom
+eject /dev/cdrom
 
 popd
