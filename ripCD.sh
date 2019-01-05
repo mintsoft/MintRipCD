@@ -43,7 +43,7 @@ for f in track*.cdda.wav; do
 			"${f}" "${f/%wav/mp3}";
 
 	##not entirely sure that --replaygain-accurate does what I want/need so I'll reapply
-	mp3gain -r -c -d 3.0 "${f/%wav/mp3}";
+	aacgain -r -c -d 3.0 "${f/%wav/mp3}";
 
 	#Rename target MP3
 	displaytracknum=$(printf "%02i" "${tracknum}");
