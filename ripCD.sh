@@ -23,7 +23,7 @@ while read line; do
 		TTITLE*)
 			trackNum=${INDEX#TTITLE};	    #remove TTITLE from the front to leave the number
 			trackNum=$(($trackNum + 1));	#0 based to 1 based
-			trackNames[${trackNum}]="$VALUE";
+			trackNames[${trackNum}]="${VALUE//\//-}";
 		;;
 		#Ignore everything else
 		*)	;;
