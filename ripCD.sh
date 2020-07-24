@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TEMPDIR="/media/smallarray/tmp/music"
+TEMPDIR="/media/array/ripping/tmp"
 
 ##prerequisites: apt-get install cddb cdparanoia cd-discid
 pushd $(pwd);
