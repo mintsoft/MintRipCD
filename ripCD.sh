@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TEMPDIR="/media/array/ripping/tmp"
+TEMPDIR="/media/osiris/tmp/music";
 
 ##prerequisites: apt-get install cddb cdparanoia cd-discid
 pushd $(pwd);
@@ -28,7 +28,7 @@ while read line; do
 		#Ignore everything else
 		*)	;;
 	esac
-done < <(/usr/bin/cddbget -I -d | sed 's/\r//');
+done < <(/usr/bin/cddbget -H gnudb.gnudb.org -I -d | sed 's/\r//');
 
 rm *.cdda.wav
 
