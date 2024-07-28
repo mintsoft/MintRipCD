@@ -33,6 +33,7 @@ done < <(/usr/bin/cddbget -H gnudb.gnudb.org -I -d | sed 's/\r//');
 rm *.cdda.wav
 
 cdparanoia -B
+eject /dev/cdrom
 
 tracknum=1;
 for f in track*.cdda.wav; do
